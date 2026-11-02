@@ -22,23 +22,7 @@ In this project:
 
 ## Architecture
 
-```mermaid
-flowchart LR
-    U[Me / Browser] -->|kubectl port-forward 8080:80| S[Service: my-microservice<br/>ClusterIP :80]
-    L[load-generator pod<br/>busybox wget loop] -->|http://my-microservice| S
-    S --> P1[nginx pod]
-    S --> P2[nginx pod]
-    S --> P3[nginx pod]
-    subgraph EKS[EKS cluster: project2-rebuild, us-east-1]
-        subgraph NG[Managed nodegroup: workers-v2, 2x m7i-flex.large]
-            P1
-            P2
-            P3
-        end
-        MS[metrics-server] -->|CPU usage| HPA[HPA<br/>min 1, max 5, target 50% CPU]
-        HPA -->|scales| P1
-    end
-```
+![Architecture diagram](images/00-architecture.png)
 
 | Piece | What it does |
 |---|---|
