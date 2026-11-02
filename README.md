@@ -1,4 +1,4 @@
-# Deploying an Autoscaling App on Amazon EKS with Helm (Project 2 Rebuild)
+# Deploying an Autoscaling App on Amazon EKS with Helm 
 
 I rebuilt my "Deploying Microservices on Amazon EKS" project from scratch to make sure I could do every step myself, explain why each piece exists, and debug it when something breaks. This write-up covers what I built, the exact commands I ran, the errors I hit and how I fixed them, and how I tore it all down so it stopped costing money.
 
