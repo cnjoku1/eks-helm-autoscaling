@@ -1,4 +1,4 @@
-# Deploying an Autoscaling App on Amazon EKS with Helm 
+# Deploying an Autoscaling App on Amazon EKS with Helm (Project 2 Rebuild)
 
 I rebuilt my "Deploying Microservices on Amazon EKS" project from scratch to make sure I could do every step myself, explain why each piece exists, and debug it when something breaks. This write-up covers what I built, the exact commands I ran, the errors I hit and how I fixed them, and how I tore it all down so it stopped costing money.
 
@@ -8,14 +8,14 @@ I rebuilt my "Deploying Microservices on Amazon EKS" project from scratch to mak
 
 ## In plain English (for non-technical readers)
 
-Imagine running events. You rent **halls** (servers), send **MCs** (copies of your app) to work in them, and give guests one **front desk number** to call so they never need to know which MC is on shift.
+Imagine running a restaurant. You have **kitchens** (servers), **cooks** (copies of your app) working in them, and one **phone number** customers call to place orders, so they never need to know which cook is on shift.
 
 In this project:
 
-- **Amazon EKS** rented and managed the halls for me (2 servers in AWS).
-- **Helm** was my reusable script. One template, and I just change the details (like how many MCs) in a separate list.
-- **The Service** was the front desk number. MCs come and go, but the number never changes.
-- **The autoscaler** was a manager watching the crowd. When I flooded the app with fake traffic, it called in more copies (1 to 3). When the crowd left, it sent them home (back to 1). Nobody had to do it by hand.
+- **Amazon EKS** ran and managed the kitchens for me (2 servers in AWS).
+- **Helm** was my reusable recipe card. One template, and I just change the details (like how many cooks) in a separate list.
+- **The Service** was the phone number. Cooks come and go, but the number never changes.
+- **The autoscaler** was a shift manager watching the orders. When I flooded the app with fake traffic, it called in more cooks (1 to 3). When the rush ended, it sent them home (back to 1). Nobody had to do it by hand.
 - At the end, I **shut everything down** and confirmed with AWS that nothing was still charging me.
 
 ---
